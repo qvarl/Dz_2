@@ -8,8 +8,8 @@ public class AllEnemysSpawnerZone : MonoBehaviour
 
     private Transform[] _points;
 
-    void Start()
-    {    
+   private void Start()
+    {
         _points = new Transform[_path.childCount];
 
         for (int i = 0; i < _path.childCount; i++)
