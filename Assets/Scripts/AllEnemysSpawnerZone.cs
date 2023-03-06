@@ -5,18 +5,10 @@ using UnityEngine;
 public class AllEnemysSpawnerZone : MonoBehaviour
 {
     [SerializeField] private Transform _path;
+    [SerializeField] private EnemySpawnerPoint[] _points;
 
-    private Transform[] _points;
-
-   private void Start()
+    private void Start()
     {
-        _points = new Transform[_path.childCount];
-
-        for (int i = 0; i < _path.childCount; i++)
-        {
-            _points[i] = _path.GetChild(i);
-        }
-
         StartCoroutine(SpawnAllEnemys());
     }
 
@@ -24,11 +16,10 @@ public class AllEnemysSpawnerZone : MonoBehaviour
     {
         var secondsForWait = new WaitForSeconds(2f);
 
-        foreach (Transform pont in _points)
+        foreach (EnemySpawnerPoint point in _points)
         {
-            EnemySpawnerPoint _enemySpawnerPoint = pont.GetComponent<EnemySpawnerPoint>();
-            _enemySpawnerPoint.SpawnEnemy();
+            point.SpawnEnemy();
             yield return secondsForWait;
-        }  
+        }
     }
 }

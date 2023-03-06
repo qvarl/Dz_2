@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnerPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemy;
+    [SerializeField] private Enemy _enemy;
 
     public void SpawnEnemy()
     { 
